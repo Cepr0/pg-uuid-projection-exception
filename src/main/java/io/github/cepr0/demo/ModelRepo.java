@@ -29,5 +29,15 @@ public interface ModelRepo extends JpaRepository<Model, UUID> {
 			"where" +
 			"  m.id = ?1", nativeQuery = true)
 	Optional<ModelProjection> getModelProjection(UUID id);
-
+	
+	@Query(value = "" +
+			"select " +
+			"  m.id as id, " +
+			"  m.object_id as objectId, " +
+			"  m.name as name " +
+			"from " +
+			"  model m " +
+			"where" +
+			"  m.id = ?1", nativeQuery = true)
+	Optional<ModelDto> getModelDto(UUID id);
 }

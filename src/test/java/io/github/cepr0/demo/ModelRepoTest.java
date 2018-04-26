@@ -43,4 +43,14 @@ public class ModelRepoTest {
 					return assertThat(m).isNotNull();
 				}).orElseThrow(RuntimeException::new);
 	}
+	
+	@Test
+	public void getModelDto() {
+		modelRepo.getModelDto(model.getId())
+				.map(m -> {
+					System.out.println(m.getId());
+					return assertThat(m).isNotNull();
+				}).orElseThrow(RuntimeException::new);
+		
+	}
 }
