@@ -27,7 +27,7 @@ How to reproduce:
 1. Create database `uuid-demo` in PostgreSQL server (with username and password `postgres` - see 'application.properties')
 2. Run test `io.github.cepr0.demo.ModelRepoTest`
 
-To workaround this I create custom PostgreSQL dialect class:
+To workaround this I created a custom PostgreSQL dialect class:
 
 ```java
 public class CustomPostgreSQL95Dialect extends PostgreSQL95Dialect {
