@@ -11,24 +11,12 @@ Example:
 public class Model {
 
 	@Id
-	@Column(columnDefinition = "uuid")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
-
-	@Column(columnDefinition = "uuid")
-	private UUID objectId;
-
-	private String name;
+	private UUID uuid;
 }
 
-@Query(value = "" +
-        "select " +
-        "  m.id as id, " +
-        "  m.object_id as objectId, " +
-        "  m.name as name " +
-        "from " +
-        "  model m " +
-        "where" +
-        "  m.id = ?1", nativeQuery = true)
+@Query(value = "select m.id as id, m.uuid as uuid from model m where m.id = ?1", nativeQuery = true)
 Optional<ModelProjection> getModelProjection(UUID id);
 ```
 
@@ -36,5 +24,5 @@ Native query with entity class works as expected.
 
 How to reproduce:
 
-1. Create database `uuid-demo` in PostgreSQL server (with username and password `postgres`, see 'application.properties')
+1. Create database `uuid-demo` in PostgreSQL server (with username and password `postgres` - see 'application.properties')
 2. Run test `io.github.cepr0.demo.ModelRepoTest` 

@@ -22,35 +22,22 @@ public class ModelRepoTest {
 	private Model model;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		model = modelRepo.save(new Model());
 	}
 
 	@Test
 	public void getModel() {
-		modelRepo.getModel(model.getId())
-				.map(m -> {
-					System.out.println(m.getId());
-					return assertThat(m).isNotNull();
-				}).orElseThrow(RuntimeException::new);
+		assertThat(modelRepo.getModel(model.getId()).get()).isNotNull();
 	}
 
 	@Test
 	public void getModelProjection() {
-		modelRepo.getModelProjection(model.getId())
-				.map(m -> {
-					System.out.println(m.getId());
-					return assertThat(m).isNotNull();
-				}).orElseThrow(RuntimeException::new);
+		assertThat(modelRepo.getModelProjection(model.getId()).get()).isNotNull();
 	}
 	
 	@Test
 	public void getModelDto() {
-		modelRepo.getModelDto(model.getId())
-				.map(m -> {
-					System.out.println(m.getId());
-					return assertThat(m).isNotNull();
-				}).orElseThrow(RuntimeException::new);
-		
+		assertThat(modelRepo.getModelDto(model.getId()).get()).isNotNull();
 	}
 }
