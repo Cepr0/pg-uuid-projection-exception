@@ -2,29 +2,18 @@ package io.github.cepr0.demo;
 
 import lombok.Data;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
 import java.util.UUID;
 
 @Data
 @Entity
 public class Model {
-
+	
 	@Id
-	@Column(columnDefinition = "uuid")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
-
-	@Column(columnDefinition = "uuid")
-	private UUID objectId;
-
-	private String name;
-
-	@PrePersist
-	public void prePersist() {
-		id = UUID.randomUUID();
-		objectId = UUID.randomUUID();
-		name = UUID.randomUUID().toString();
-	}
+	private UUID uuid = UUID.randomUUID();
 }

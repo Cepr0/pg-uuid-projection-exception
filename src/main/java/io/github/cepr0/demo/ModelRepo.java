@@ -11,8 +11,7 @@ public interface ModelRepo extends JpaRepository<Model, UUID> {
 	@Query(value = "" +
 			"select " +
 			"  m.id as id, " +
-			"  m.object_id as objectId, " +
-			"  m.name as name " +
+			"  m.uuid as uuid " +
 			"from " +
 			"  model m " +
 			"where" +
@@ -22,8 +21,7 @@ public interface ModelRepo extends JpaRepository<Model, UUID> {
 	@Query(value = "" +
 			"select " +
 			"  m.id as id, " +
-			"  m.object_id as objectId, " +
-			"  m.name as name " +
+			"  m.uuid as uuid " +
 			"from " +
 			"  model m " +
 			"where" +
@@ -33,8 +31,7 @@ public interface ModelRepo extends JpaRepository<Model, UUID> {
 	@Query(value = "" +
 			"select " +
 			"  m.id as id, " +
-			"  m.object_id as objectId, " +
-			"  m.name as name " +
+			"  m.uuid as uuid " +
 			"from " +
 			"  model m " +
 			"where" +

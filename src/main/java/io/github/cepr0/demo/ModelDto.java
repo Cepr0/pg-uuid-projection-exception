@@ -11,6 +11,5 @@ import java.util.UUID;
 @NoArgsConstructor
 public class ModelDto {
 	private UUID id;
-	private UUID objectId;
-	private String name;
+	private UUID uuid;
 }

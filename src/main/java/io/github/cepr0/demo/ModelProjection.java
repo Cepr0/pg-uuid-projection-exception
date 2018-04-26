@@ -4,6 +4,5 @@ import java.util.UUID;
 
 public interface ModelProjection {
 	UUID getId();
-	UUID getObjectId();
-	String getName();
+	UUID getUuid();
 }
