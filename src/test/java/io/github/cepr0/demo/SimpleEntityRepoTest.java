@@ -15,29 +15,23 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class ModelRepoTest {
-
-	@Autowired private ModelRepo modelRepo;
-
-	private Model model;
-
+public class SimpleEntityRepoTest {
+	
+	@Autowired private SimpleEntityRepo repo;
+	private SimpleEntity entity;
+	
 	@Before
 	public void setUp() {
-		model = modelRepo.save(new Model());
-	}
-
-	@Test
-	public void getModel() {
-		assertThat(modelRepo.getModel(model.getId())).isNotEmpty();
-	}
-
-	@Test
-	public void getModelProjection() {
-		assertThat(modelRepo.getModelProjection(model.getId())).isNotEmpty();
+		entity = repo.save(new SimpleEntity());
 	}
 	
 	@Test
-	public void getModelDto() {
-		assertThat(modelRepo.getModelDto(model.getId())).isNotEmpty();
+	public void getDto() {
+		assertThat(repo.getDto(entity.getId())).isNotEmpty();
+	}
+	
+	@Test
+	public void getDtoById() {
+		assertThat(repo.getDtoById(entity.getId())).isNotEmpty();
 	}
 }
